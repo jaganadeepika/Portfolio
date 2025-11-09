@@ -1,118 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-    <title>Document</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .video-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            z-index: -1; 
-        }
-
-        #a {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            text-align: center;
-            margin-top: 200px;
-            color: white;
-        }
-        #b{
-            font-size: 15px;
-        }
-        #c{
-            font-size: 40px;
-        }
-        nav {
-            position: fixed;
-            text-align: right;
-            width: 100%;
-            margin-top: 50px;
-        }
-
-        a {
-            margin: 20px;
-            color: orange;
-            font-size: 20px;
-            text-decoration: none;
-        }
-
-        a:hover {
-            background-color: white;
-            padding: 10px;
-            border-bottom: 2px solid blue;
-            border-radius: 100px;
-        }
-        content{
-            color: aliceblue;
-        }
-        #icon{
-            font-size: 20px;
-            color: orange;
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        #typing {
-            font-size: 40px;
-            color: rgb(175, 116, 7);
-            border-right: 2px solid;
-            white-space: nowrap;
-            overflow: hidden;
-            width: fit-content;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <video autoplay muted loop class="video-bg">
-        <source src="Particles_7___48s___4k_res.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <nav>
-        <a href="http://127.0.0.1:5500/aboutme.html">About</a>
-        <a href="http://127.0.0.1:5500/work.html">My work</a>
-        <a href="http://127.0.0.1:5500/contact.html">Contact me</a>
-    </nav>
-    <div id="a">
-    <h1 id="c">Hello!<br><br>I am <span id="typing"></span></h1>
-    <content id="b">I love to learn and create intuitive, scalable, and optimized front-end designs that enhance user experience.</content><br><br>
-    <div id="icon">
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-sharp fa-solid fa-phone"></i>
-        <i class="fa-brands fa-github"></i>
-    </div>    
-</div>
-
-<script>
-    const text = "Deepika Jagana";
-    let index = 0;
-    const speed = 200; 
-
-    function typeEffect() {
-        if (index < text.length) {
-            document.getElementById("typing").innerHTML += text.charAt(index);
-            index++;
-            setTimeout(typeEffect, speed);
-        } else {
-            document.getElementById("typing").style.borderRight = "2px solid transparent";
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepika Jagana | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
 
-    window.onload = typeEffect; 
-</script>
+    body {
+      background-color: #f9fafc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: #0077b6;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0077b6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 1rem 3rem;
+      background: linear-gradient(135deg, #e0f7fa, #f1f9ff);
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 1.2rem;
+      border: 4px solid #0077b6;
+      object-fit: cover;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      color: #0077b6;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .contact-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .contact-buttons a {
+      text-decoration: none;
+      color: #0077b6;
+      border: 1px solid #0077b6;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .contact-buttons a:hover {
+      background: #0077b6;
+      color: #fff;
+    }
+
+    section {
+      padding: 4rem 8%;
+      background: #fff;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
+    }
+
+    section h3 {
+      color: #0077b6;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .experience, .projects, .skills {
+      margin-bottom: 2rem;
+    }
+
+    .item {
+      margin-bottom: 1.8rem;
+      border-left: 4px solid #0077b6;
+      padding-left: 15px;
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      transform: translateX(5px);
+    }
+
+    .item h4 {
+      color: #222;
+      font-size: 1.2rem;
+    }
+
+    .item span {
+      color: #666;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .item ul {
+      margin-top: 0.5rem;
+      list-style: disc;
+      margin-left: 1.2rem;
+      color: #444;
+    }
+
+    .demo-link {
+      display: inline-block;
+      margin-top: 0.6rem;
+      color: #0077b6;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #0077b6;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .demo-link:hover {
+      background-color: #0077b6;
+      color: #fff;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-box {
+      background: #f7f9fb;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+      transition: 0.3s;
+    }
+
+    .skill-box:hover {
+      background: #e7f3ff;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #0077b6;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      .hero {
+        padding: 4rem 1rem;
+      }
+      section {
+        padding: 2.5rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Deepika Jagana</h1>
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="https://w7.pngwing.com/pngs/666/201/png-transparent-computer-icons-woman-women-s-day-face-holidays-head.png" alt="Deepika Jagana" class="avatar" />
+    <h2>I’m Deepika Jagana — Software Developer & Data Science Explorer</h2>
+    <p>Passionate about building scalable web applications and uncovering insights from data.</p>
+    <div class="contact-buttons">
+      <a href="mailto:jgndeepika@gmail.com">📧 Email</a>
+      <a href="https://www.linkedin.com/in/deepika-jagana-775227302/" target="_blank">💼 LinkedIn</a>
+      <a href="https://github.com/jaganadeepika" target="_blank">💻 GitHub</a>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h3>Experience</h3>
+    <div class="item">
+      <h4>Research Intern – IIT Bhubaneswar</h4>
+      <span>May 2025 – Jul 2025 | Under Prof. Bharath Ram</span>
+      <ul>
+        <li>Developed a sentiment analysis model using <b>NLTK</b>, <b>TF-IDF</b>, and ML algorithms (Naive Bayes, Logistic Regression, SVM).</li>
+        <li>Performed EDA to uncover sentiment trends and frequent n-grams from Amazon product reviews.</li>
+        <li>Built and deployed an interactive <b>Streamlit</b> dashboard for real-time sentiment prediction.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3>Projects</h3>
+
+    <div class="item">
+      <h4>Hospital Management System | Flask, PostgreSQL</h4>
+      <span>Mar 2025 – Apr 2025</span>
+      <ul>
+        <li>Role-based system supporting Admin, Doctor, Data Entry, and Front Desk roles.</li>
+        <li>Implemented patient registration, doctor assignment, and appointment scheduling.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h4>TCP Congestion Control Analysis | Python, Linux</h4>
+      <span>Mar 2025 – Apr 2025</span>
+      <ul>
+        <li>Simulated LAN/WLAN network conditions to compare <b>Reno, Cubic,</b> and <b>BBR</b> algorithms.</li>
+        <li>Measured RTT and visualized performance results using Python & matplotlib.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <h4>Weather App | React.js</h4>
+      <span>Dec 2024 – Jan 2025</span>
+      <ul>
+        <li>Responsive React app fetching live weather data from a public API.</li>
+        <li>Ensured smooth UI components for cross-device compatibility.</li>
+      </ul>
+      <a href="https://jaganadeepika.github.io/Weather-react/" class="demo-link" target="_blank">🌤 Live Demo</a>
+    </div>
+
+    <div class="item">
+      <h4>Rhyno EV Responsive Website | React.js</h4>
+      <span>May 2024 – Jul 2024</span>
+      <ul>
+        <li>Responsive website with product comparisons, pre-booking, and payment gateway.</li>
+        <li>Implemented interactive UI with cross-browser support.</li>
+      </ul>
+      <a href="https://jaganadeepika.github.io/rhynoev/" class="demo-link" target="_blank">⚡🏍️ Live Demo</a>
+    </div>
+
+    <div class="item">
+      <h4>Autism Spectrum Disorder Prediction | Python, Scikit-learn</h4>
+      <span>Oct 2025 – Present</span>
+      <ul>
+        <li>Building a machine learning model to predict ASD from questionnaire-based data.</li>
+        <li>Performing feature encoding and comparing algorithms (Logistic Regression, KNN, Decision Tree, Naive Bayes).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h3>Key Skills</h3>
+    <div class="skills-list">
+      <div class="skill-box">C/C++</div>
+      <div class="skill-box">Python</div>
+      <div class="skill-box">SQL</div>
+      <div class="skill-box">HTML, CSS, JavaScript</div>
+      <div class="skill-box">React.js</div>
+      <div class="skill-box">Flask</div>
+      <div class="skill-box">PostgreSQL</div>
+      <div class="skill-box">Linux</div>
+      <div class="skill-box">Pandas, NumPy</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Deepika Jagana | Designed with ❤️ using HTML, CSS, and JS</p>
+  </footer>
 </body>
 </html>
